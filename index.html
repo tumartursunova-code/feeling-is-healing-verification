@@ -1,446 +1,300 @@
-# feeling-is-healing-verification<!-- Feeling is Healing — Official Certificate Verification Portal -->
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Feeling is Healing | Official Certificate Verification Portal</title>
-
-  <!-- Google Font -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      scroll-behavior: smooth;
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Feeling is Healing</title>  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">  <style>
+    :root{
+      --bg1:#fffaf7;
+      --bg2:#fff3ef;
+      --card:rgba(255,255,255,0.7);
+      --text:#2b2b2b;
+      --muted:#6b6b6b;
+      --accent:#e7a6a6;
+      --accent2:#d8b4a0;
+      --shadow: 0 12px 40px rgba(0,0,0,0.08);
+      --radius:18px;
     }
 
-    body {
-      font-family: 'Inter', sans-serif;
-      background:
-        radial-gradient(circle at top left, rgba(139,92,246,0.25), transparent 35%),
-        radial-gradient(circle at bottom right, rgba(59,130,246,0.18), transparent 35%),
-        linear-gradient(135deg, #0f172a, #111827, #1e1b4b);
-      color: #f8fafc;
-      min-height: 100vh;
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Inter, sans-serif;
     }
 
-    /* NAVBAR */
-    .navbar {
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 22px 8%;
-      position: sticky;
-      top: 0;
-      backdrop-filter: blur(16px);
-      background: rgba(15, 23, 42, 0.65);
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-      z-index: 1000;
+    body{
+      background: linear-gradient(180deg,var(--bg1),var(--bg2));
+      color:var(--text);
+      line-height:1.6;
+      overflow-x:hidden;
     }
 
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 14px;
+    /* subtle floating background blur */
+    body::before{
+      content:"";
+      position:fixed;
+      width:400px;
+      height:400px;
+      background:radial-gradient(circle, rgba(231,166,166,0.25), transparent 70%);
+      top:-100px;
+      left:-100px;
+      filter:blur(60px);
+      z-index:-1;
     }
 
-    .brand img {
-      width: 52px;
-      height: 52px;
-      border-radius: 14px;
-      object-fit: cover;
-      box-shadow: 0 0 18px rgba(139,92,246,0.35);
-    }
-
-    .brand-text h1 {
-      font-size: 1.2rem;
-      font-weight: 800;
-      letter-spacing: -0.02em;
-    }
-
-    .brand-text p {
-      font-size: 0.78rem;
-      opacity: 0.72;
-      margin-top: 2px;
-    }
-
-    nav {
-      display: flex;
-      gap: 28px;
-    }
-
-    nav a {
-      color: #e2e8f0;
-      text-decoration: none;
-      font-size: 0.95rem;
-      font-weight: 500;
-      transition: 0.3s;
-    }
-
-    nav a:hover {
-      color: #a78bfa;
+    .container{
+      max-width:1100px;
+      margin:0 auto;
+      padding:40px 20px;
     }
 
     /* HERO */
-    .hero {
-      padding: 90px 8% 70px;
-      text-align: center;
-      max-width: 950px;
-      margin: auto;
+    .hero{
+      text-align:center;
+      padding:90px 20px 60px;
+      animation:fadeUp 1s ease;
     }
 
-    .hero-badge {
-      display: inline-block;
-      padding: 8px 16px;
-      border-radius: 999px;
-      background: rgba(139,92,246,0.16);
-      color: #c4b5fd;
-      font-size: 0.82rem;
-      font-weight: 600;
-      margin-bottom: 26px;
-      border: 1px solid rgba(196,181,253,0.2);
+    .hero h1{
+      font-size:58px;
+      font-weight:700;
+      letter-spacing:-1px;
     }
 
-    .hero h2 {
-      font-size: clamp(2.4rem, 6vw, 4.8rem);
-      font-weight: 800;
-      line-height: 1.08;
-      letter-spacing: -0.04em;
-      margin-bottom: 24px;
+    .hero p{
+      margin-top:14px;
+      font-size:18px;
+      color:var(--muted);
+      max-width:600px;
+      margin-left:auto;
+      margin-right:auto;
     }
 
-    .hero p {
-      font-size: 1.1rem;
-      line-height: 1.8;
-      color: #cbd5e1;
-      max-width: 760px;
-      margin: auto;
+    .pill{
+      display:inline-block;
+      margin-top:18px;
+      padding:8px 14px;
+      border-radius:999px;
+      background:#ffffffaa;
+      border:1px solid #eee;
+      font-size:12px;
+      color:var(--muted);
     }
 
-    .hero-buttons {
-      margin-top: 34px;
-      display: flex;
-      justify-content: center;
-      gap: 16px;
-      flex-wrap: wrap;
+    /* SECTIONS */
+    .section{
+      margin-top:60px;
+      animation:fadeUp 1s ease;
     }
 
-    .primary-btn, .secondary-btn {
-      padding: 14px 26px;
-      border-radius: 14px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: 0.3s;
+    .section h2{
+      font-size:22px;
+      margin-bottom:15px;
+      letter-spacing:-0.3px;
     }
 
-    .primary-btn {
-      background: linear-gradient(135deg, #8b5cf6, #3b82f6);
-      color: white;
-      box-shadow: 0 10px 25px rgba(139,92,246,0.28);
+    .card{
+      background:var(--card);
+      backdrop-filter: blur(14px);
+      border-radius:var(--radius);
+      padding:26px;
+      box-shadow:var(--shadow);
+      border:1px solid rgba(255,255,255,0.4);
     }
 
-    .primary-btn:hover {
-      transform: translateY(-2px);
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:18px;
     }
 
-    .secondary-btn {
-      border: 1px solid rgba(255,255,255,0.12);
-      color: #e2e8f0;
-      background: rgba(255,255,255,0.04);
+    .tag{
+      display:inline-block;
+      padding:7px 12px;
+      background:#fff;
+      border-radius:999px;
+      margin:5px;
+      font-size:13px;
+      color:var(--muted);
+      border:1px solid #eee;
     }
 
-    /* VERIFY SECTION */
-    .verify-section {
-      padding: 30px 8% 80px;
-      display: flex;
-      justify-content: center;
+    .result-card{
+      margin-top:20px;
+      padding:18px;
+      border-radius:16px;
+      display:none;
+      animation:fadeUp 0.5s ease;
+      text-align:left;
     }
 
-    .verify-card {
-      width: 100%;
-      max-width: 720px;
-      background: rgba(255,255,255,0.06);
-      backdrop-filter: blur(22px);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 28px;
-      padding: 42px;
-      box-shadow: 0 25px 60px rgba(0,0,0,0.35);
+    .result-success{
+      background:rgba(215,245,226,0.8);
+      border:1px solid rgba(120,200,150,0.35);
     }
 
-    .verify-card h3 {
-      font-size: 2rem;
-      margin-bottom: 10px;
+    .result-fail{
+      background:rgba(255,235,235,0.8);
+      border:1px solid rgba(230,120,120,0.25);
     }
 
-    .verify-card p {
-      color: #cbd5e1;
-      margin-bottom: 24px;
-      line-height: 1.7;
+    .result-loading{
+      background:rgba(255,255,255,0.75);
+      border:1px solid rgba(0,0,0,0.05);
     }
 
-    .verify-form {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
+    .result-title{
+      font-weight:600;
+      margin-bottom:5px;
+      font-size:15px;
     }
 
-    .verify-form input {
-      flex: 1;
-      min-width: 220px;
-      padding: 16px;
-      border-radius: 14px;
-      border: none;
-      outline: none;
-      font-size: 1rem;
-      background: rgba(255,255,255,0.92);
-      color: #0f172a;
+    .result-text{
+      color:var(--muted);
+      font-size:14px;
     }
 
-    .verify-form button {
-      padding: 16px 24px;
-      border: none;
-      border-radius: 14px;
-      background: linear-gradient(135deg, #8b5cf6, #3b82f6);
-      color: white;
-      font-weight: 700;
-      cursor: pointer;
-      transition: 0.3s;
+    input{
+      padding:12px;
+      width:70%;
+      border-radius:12px;
+      border:1px solid #ddd;
+      margin-top:10px;
+      outline:none;
     }
 
-    .verify-form button:hover {
-      transform: translateY(-2px);
+    button{
+      margin-top:15px;
+      padding:12px 20px;
+      border:none;
+      background:var(--accent);
+      color:white;
+      border-radius:12px;
+      cursor:pointer;
+      transition:0.25s;
     }
 
-    #loading {
-      margin-top: 18px;
-      color: #c4b5fd;
-      display: none;
-      font-weight: 500;
+    button:hover{
+      transform:translateY(-2px);
+      background:#d98f8f;
     }
 
-    #result {
-      margin-top: 24px;
-      padding: 22px;
-      border-radius: 18px;
-      line-height: 1.8;
-      display: none;
+    a{ color:var(--accent); text-decoration:none; }
+
+    footer{
+      text-align:center;
+      margin-top:80px;
+      color:var(--muted);
+      font-size:13px;
+      padding-bottom:30px;
     }
 
-    .valid {
-      background: rgba(34,197,94,0.12);
-      border: 1px solid rgba(34,197,94,0.25);
+    @keyframes fadeUp{
+      from{opacity:0; transform:translateY(20px);}
+      to{opacity:1; transform:translateY(0);}
     }
 
-    .invalid {
-      background: rgba(239,68,68,0.12);
-      border: 1px solid rgba(239,68,68,0.22);
+    @media(max-width:768px){
+      .hero h1{font-size:42px;}
+      input{width:100%;}
     }
-
-    /* INFO CARDS */
-    .info-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 24px;
-      padding: 0 8% 90px;
-    }
-
-    .info-card {
-      background: rgba(255,255,255,0.05);
-      border-radius: 22px;
-      padding: 28px;
-      border: 1px solid rgba(255,255,255,0.06);
-    }
-
-    .info-card h4 {
-      font-size: 1.15rem;
-      margin-bottom: 14px;
-    }
-
-    .info-card p {
-      color: #cbd5e1;
-      line-height: 1.8;
-      font-size: 0.96rem;
-    }
-
-    /* FOOTER */
-    footer {
-      text-align: center;
-      padding: 34px 8%;
-      border-top: 1px solid rgba(255,255,255,0.08);
-      color: #94a3b8;
-      font-size: 0.88rem;
-      line-height: 1.8;
-    }
-
-    /* MOBILE */
-    @media (max-width: 900px) {
-      .navbar {
-        flex-direction: column;
-        gap: 18px;
-      }
-
-      nav {
-        gap: 18px;
-        flex-wrap: wrap;
-        justify-content: center;
-      }
-
-      .verify-card {
-        padding: 28px;
-      }
-
-      .verify-form {
-        flex-direction: column;
-      }
-
-      .verify-form button {
-        width: 100%;
-      }
-    }
-  </style>
-</head>
-<body>
-
-  <!-- NAVIGATION -->
-  <header class="navbar">
-    <div class="brand">
-      <!-- Replace logo.png with your actual logo file -->
-      <img src="logo.png" alt="Feeling is Healing Logo">
-      <div class="brand-text">
-        <h1>Feeling is Healing</h1>
-        <p>Research Initiative</p>
-      </div>
-    </div>
-
-    <nav>
-      <a href="#verify">Verify</a>
-      <a href="#about">About</a>
-      <a href="#security">Security</a>
-    </nav>
-  </header>
-
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-badge">
-      Official Certificate Authentication System
-    </div>
-
-    <h2>Verify Participation in the Feeling is Healing Research Initiative</h2>
-
-    <p>
-      Securely validate certificates issued through Feeling is Healing, an independent research project conducted with community outreach support from Econ for Teens.
-    </p>
-
-    <div class="hero-buttons">
-      <a href="#verify" class="primary-btn">Verify Certificate</a>
-      <a href="#about" class="secondary-btn">Learn More</a>
-    </div>
-  </section>
-
-  <!-- VERIFY -->
-  <section class="verify-section" id="verify">
-    <div class="verify-card">
-      <h3>Certificate Verification Portal</h3>
+  </style></head>
+<body><div class="container">  <div class="hero">
+    <h1>Feeling is Healing</h1>
+    <p>Youth-Led Emotional Intelligence & Reflection Initiative — building psychologically safe digital experiences for adolescent wellbeing.</p>
+    <div class="pill">emotional intelligence • reflection • research • digital wellbeing</div>
+  </div>  <div class="section">
+    <h2>About Us</h2>
+    <div class="card">
       <p>
-        Enter your Certificate ID below to confirm authenticity through our secure participant database.
-      </p>
+        <p>
+Feeling is Healing is a youth-led initiative focused on mental health, self-awareness, and adolescent wellbeing. We aim to create meaningful and mentally safe experiences that help teenagers better understand themselves in an increasingly overwhelming digital world. 
+        <br><br>
+        In the future, we are building a broader digital platform that may include interactive tools and a mobile application designed to support reflection, emotional awareness, and everyday wellbeing practices for teenagers.
+        <br><br>
+        If this vision resonates with you, you are welcome to join us and be part of this growing initiative.
+      </p><div style="margin-top:15px;">
+    <span class="tag">reflection</span>
+    <span class="tag">emotional intelligence</span>
+    <span class="tag">adolescent wellbeing</span>
+    <span class="tag">research</span>
+    <span class="tag">safe digital design</span>
+  </div>
+</div>
 
-      <div class="verify-form">
-        <input type="text" id="certificateCode" placeholder="Example: FIH-2026-001">
-        <button onclick="verifyCertificate()">Verify Now</button>
-      </div>
-
-      <div id="loading">Authenticating certificate...</div>
-      <div id="result"></div>
+  </div>  <div class="section">
+    <h2>Verification Portal</h2>
+    <div class="card" style="text-align:center;">
+      <p>Enter certificate ID</p>
+      <input id="certId" placeholder="FIH-2026-001" />
+      <br>
+      <button onclick="verify()">Verify</button>
+      <div id="result" class="result-card"></div>
     </div>
-  </section>
-
-  <!-- ABOUT + SECURITY -->
-  <section class="info-grid" id="about">
-    <div class="info-card">
-      <h4>About the Project</h4>
-      <p>
-        Feeling is Healing is a youth-led research initiative exploring emotional reflection, AI interaction, and personal growth through structured participant studies.
-      </p>
+  </div>  <div class="section">
+    <h2>Current Focus</h2>
+    <div class="grid">
+      <div class="card">Youth reflection</div>
+      <div class="card">Emotional intelligence</div>
+      <div class="card">Research</div>
+      <div class="card">Digital experiences</div>
     </div>
-
-    <div class="info-card" id="security">
-      <h4>Security & Authenticity</h4>
-      <p>
-        Every certificate includes a unique identifier connected to our verification database. Certificates can only be validated through this official portal.
-      </p>
+  </div>  <div class="section">
+    <h2>Connect</h2>
+    <div class="card">
+      <p><a href="https://www.instagram.com/feeling_ishealing?igsh=ZTZ3ZW1qZjhvajI3">Instagram</a></p>
+      <p><a href="https://t.me/cognifymentalhealth">Telegram Channel</a></p>
+      <p><a href="https://t.me/feelingisheaking">Telegram Community</a></p>
+      
     </div>
+  </div>  <footer>© 2026 Feeling is Healing</footer></div><script>
+  const API_URL = "https://script.google.com/macros/s/AKfycbyeyIk1jcgrfXJwkB6tqxF3JJJtIagodNcfSUwjuT0ARQrzhDoJd44BpRRmq3QmP1yibA/exec";
 
-    <div class="info-card">
-      <h4>Collaboration</h4>
-      <p>
-        Conducted by Feeling is Healing • Community outreach supported by Econ for Teens.
-      </p>
-    </div>
-  </section>
+  async function verify(){
+    const id = document.getElementById('certId').value;
+    const result = document.getElementById('result');
 
-  <!-- FOOTER -->
-  <footer>
-    © 2026 Feeling is Healing Research Initiative<br>
-    Conducted independently by Feeling is Healing • Outreach support by Econ for Teens
-  </footer>
-
-  <script>
-    const API_URL="https://script.google.com/macros/s/AKfycbyeyIk1jcgrfXJwkB6tqxF3JJJtIagodNcfSUwjuT0ARQrzhDoJd44BpRRmq3QmP1yibA/exec";
-
-    function verifyCertificate() {
-      const code = document.getElementById("certificateCode").value.trim();
-      const resultDiv = document.getElementById("result");
-      const loadingDiv = document.getElementById("loading");
-
-      if (!code) {
-        resultDiv.style.display = "block";
-        resultDiv.className = "invalid";
-        resultDiv.innerHTML = "⚠️ Please enter a valid Certificate ID.";
-        return;
-      }
-
-      loadingDiv.style.display = "block";
-      resultDiv.style.display = "none";
-
-      fetch(`${API_URL}?id=${encodeURIComponent(code)}`)
-        .then(response => response.json())
-        .then(data => {
-          loadingDiv.style.display = "none";
-          resultDiv.style.display = "block";
-
-          if (data.status === "valid") {
-            resultDiv.className = "valid";
-            resultDiv.innerHTML = `
-              ✅ <strong>Valid Certificate</strong><br><br>
-              <strong>Name:</strong> ${data.name}<br>
-              <strong>Program:</strong> ${data.program}<br>
-              <strong>Date:</strong> ${data.date}<br>
-              <strong>Status:</strong> Officially Verified
-            `;
-          } else {
-            resultDiv.className = "invalid";
-            resultDiv.innerHTML = `
-              ❌ <strong>Invalid Certificate</strong><br>
-              No matching certificate was found in the official database.
-            `;
-          }
-        })
-        .catch(error => {
-          loadingDiv.style.display = "none";
-          resultDiv.style.display = "block";
-          resultDiv.className = "invalid";
-          resultDiv.innerHTML = "⚠️ Verification system error. Please try again later.";
-          console.error(error);
-        });
+    if(!id){
+      result.style.display = 'block';
+      result.className = 'result-card result-fail';
+      result.innerHTML = `
+        <div class="result-title">Missing Certificate ID</div>
+        <div class="result-text">Please enter a valid certificate ID to continue.</div>
+      `;
+      return;
     }
-  </script>
 
-</body>
-        </html>
+    result.style.display = 'block';
+    result.className = 'result-card result-loading';
+    result.innerHTML = `
+      <div class="result-title">Checking Certificate...</div>
+      <div class="result-text">Please wait while we verify your record.</div>
+    `;
+
+    try{
+      const res = await fetch(API_URL + "?id=" + id);
+      const data = await res.json();
+
+      if(data.valid){
+        result.className = 'result-card result-success';
+        result.innerHTML = `
+          <div class="result-title">Certificate Verified ✔</div>
+          <div class="result-text">This certificate is valid and officially recognized by Feeling is Healing.</div>
+        `;
+      } else {
+        result.className = 'result-card result-fail';
+        result.innerHTML = `
+          <div class="result-title">Certificate Not Found</div>
+          <div class="result-text">We could not find a matching certificate in our records.</div>
+        `;
+      }
+    }catch(e){
+      result.className = 'result-card result-fail';
+      result.innerHTML = `
+        <div class="result-title">Verification Error</div>
+        <div class="result-text">Unable to connect to the verification server at the moment.</div>
+      `;
+    }
+  }
+</script></body>
+  </html>
