@@ -687,29 +687,29 @@ async function verify(){
 
     const data = await res.json();
 
-    if(data.status === "valid"){
+    if(data.success){
 
-      result.className = 'result-card result-success';
+  result.className = 'result-card result-success';
 
-      result.innerHTML = `
-        <div class="result-title">
-          Certificate Verified ✓
-        </div>
+  result.innerHTML = `
+    <div class="result-title">
+      Certificate Verified ✓
+    </div>
 
-        <div class="result-text">
+    <div class="result-text">
 
-          <strong>Name:</strong> ${data.name}<br><br>
+      <strong>Name:</strong> ${data.certificate.name}<br><br>
 
-          <strong>Program:</strong> ${data.program}<br><br>
+      <strong>Program:</strong> ${data.certificate.program}<br><br>
 
-          <strong>Date:</strong> ${data.date}<br><br>
+      <strong>Date:</strong> ${data.certificate.date}<br><br>
 
-          This certificate is officially recognized by Feeling is Healing.
+      This certificate is officially recognized by Feeling is Healing.
 
-        </div>
-      `;
+    </div>
+  `;
 
-    } else {
+} else {
 
       result.className = 'result-card result-fail';
 
